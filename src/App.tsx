@@ -20,7 +20,7 @@ export default function App() {
   }, []);
 
   function getMerchants() {
-    axios.get("http://localhost:5000").then((res) => {
+    axios.get("https://api-merchants-app.herokuapp.com/").then((res) => {
       setMerchantsList(res.data);
     });
   }
@@ -34,7 +34,7 @@ export default function App() {
     inputEmail.value = "";
 
     if (merchant) {
-      axios.post("http://localhost:5000/merchants", merchant).then((res) => {
+      axios.post("https://api-merchants-app.herokuapp.com/merchants", merchant).then((res) => {
         alert(res.data);
         getMerchants();
       });
@@ -42,7 +42,7 @@ export default function App() {
   }
 
   function deleteMerchant(id: number) {
-    axios.delete(`http://localhost:5000/merchants/${id}`).then((res) => {
+    axios.delete(`https://api-merchants-app.herokuapp.com/merchants/${id}`).then((res) => {
       alert(res.data);
       getMerchants();
     });
